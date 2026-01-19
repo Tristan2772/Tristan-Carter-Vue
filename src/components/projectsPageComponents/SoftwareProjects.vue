@@ -1,5 +1,5 @@
 <script setup>
-import { BiFolderOpen, BiLinkExternal } from "vue-icons-plus/bi";
+import { BiFolderOpen, BiLinkExternal } from 'vue-icons-plus/bi'
 import jsonData from '../../assets/projects.json'
 const projectData = jsonData.projects
 const softwareProjectData = projectData.filter((project) => project.category == 'software')
@@ -15,8 +15,8 @@ const softwareProjectData = projectData.filter((project) => project.category == 
           <h3>{{ projects.title }}</h3>
           <p>{{ projects.about }}</p>
           <div class="links">
-            <a :href="projects.link1" target="_blank">Website<BiLinkExternal /></a>
-            <a :href="projects.link2" target="_blank">Repo<BiFolderOpen/></a>
+            <a :href="projects.link1" target="_blank">Website <BiLinkExternal size="24" /></a>
+            <a :href="projects.link2" target="_blank">Repo <BiFolderOpen size="24" /></a>
           </div>
         </div>
       </div>
@@ -62,8 +62,10 @@ const softwareProjectData = projectData.filter((project) => project.category == 
     flex-direction: column;
     justify-content: space-around;
     p {
-      padding: var(--sm-gap) var(--sm-gap) 0;
+      margin-top: var(--sm-gap);
+      padding: 0 var(--sm-gap);
       line-height: var(--lh2);
+      border-left: 2px solid var(--bg);
     }
     div.links {
       padding-bottom: var(--sm-gap);
@@ -106,13 +108,15 @@ const softwareProjectData = projectData.filter((project) => project.category == 
 }
 
 @media screen and (max-width: 900px) {
-  .project-card{
+  .project-card {
     flex-direction: column;
     align-items: center;
     padding-left: 0;
+    gap: 0;
 
     img {
       width: 75%;
+      margin: var(--md-gap) 0 0;
     }
     .details div.links {
       text-align: right;
@@ -128,20 +132,18 @@ const softwareProjectData = projectData.filter((project) => project.category == 
     border-left: solid 6px var(--primary);
     border-radius: 0 20px 20px 0;
     background-image: linear-gradient(225deg, var(--bg2), var(--bg2), var(--bg));
-
   }
   .details div.links {
     text-align: left;
   }
 }
-@media screen and (max-width:500px) {
-    div.details {
-      padding: var(--sm-gap);
+@media screen and (max-width: 500px) {
+  div.details {
+    padding: var(--sm-gap);
 
-      p{
-        padding-right: 0px;
-      }
+    p {
+      padding-right: 0px;
     }
-
+  }
 }
 </style>

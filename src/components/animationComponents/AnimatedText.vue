@@ -16,13 +16,13 @@ const cssVarContent = computed(() => {
 </script>
 
 <template>
-  <span
+  <div
     class="animated-text"
     :class="animationClass"
     :style="{ '--dynamic-content': cssVarContent }"
   >
     <slot />
-  </span>
+  </div>
 </template>
 
 <style scoped>

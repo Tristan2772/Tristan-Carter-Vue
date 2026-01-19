@@ -1,7 +1,6 @@
 <script setup>
-import { BiLinkExternal, BiFolderOpen } from "vue-icons-plus/bi";
+import { BiLinkExternal, BiFolderOpen } from 'vue-icons-plus/bi'
 defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
-
 </script>
 
 <template>
@@ -10,8 +9,8 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
     <h3>{{ title }}</h3>
     <p>{{ about }}</p>
     <div class="links">
-      <a :href="link1" target="_blank">Website <BiLinkExternal /> </a>
-      <a :href="link2" target="_blank">Repo <BiFolderOpen /> </a>
+      <a :href="link1" target="_blank">Website <BiLinkExternal size="24" /> </a>
+      <a :href="link2" target="_blank">Repo <BiFolderOpen size="24" /> </a>
     </div>
   </div>
 </template>
@@ -30,7 +29,6 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
 
   h3 {
     text-align: center;
-
   }
   img {
     display: block;
@@ -70,7 +68,7 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
   }
 }
 
-.project-card:hover, .project-card.active{
+.project-card.active {
   background-color: var(--body-bg);
 }
 
@@ -91,7 +89,8 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
     img {
       width: 80%;
     }
-    p, div.links {
+    p,
+    div.links {
       font-size: var(--fs-xs);
     }
   }

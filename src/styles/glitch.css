@@ -1,4 +1,8 @@
-.animated-text.glitch {
+#change-text-animation {
+  animation: glitchy-words 10s infinite;
+}
+
+.animated-text.glitch.active {
   position: relative;
   display: inline-block;
   text-decoration: none;
@@ -6,20 +10,19 @@
   cursor: pointer;
   animation: glitch1 10s infinite;
 }
-.animated-text.glitch::before {
+.animated-text.glitch.active::before {
   color: var(--secondary);
   z-index: -1;
-  opacity: 0.75;
   animation: glitch2 10s infinite;
 }
-.animated-text.glitch::after {
+.animated-text.glitch.active::after {
   color: var(--accent);
   z-index: -2;
-  opacity: 0.5;
+  opacity: 1;
   animation: glitch3 10s infinite;
 }
-.animated-text.glitch::before,
-.animated-text.glitch::after {
+.animated-text.glitch.active::before,
+.animated-text.glitch.active::after {
   content: var(--dynamic-content);
   position: absolute;
   top: 0;
@@ -31,115 +34,93 @@
 
 @keyframes glitch1 {
   0%,
-  80% {
+  90% {
     transform: none;
   }
-  81.4% {
-    transform: translate(-6px, 6px);
-  }
-  82%,
-  85.4% {
-    transform: none;
-  }
-  86% {
-    transform: translate(-6px, 6px);
-  }
-  87%,
-  91% {
-    transform: none;
+  90.7% {
+    transform: translate(6px, 6px);
   }
   92%,
-  94.4% {
-    transform: translate(8px, -8px);
+  94% {
+    transform: none;
   }
-  95% {
+  94.7% {
+    transform: translate(6px, 6px);
+  }
+  95%,
+  96% {
+    transform: none;
+  }
+  96.7%,
+  97.7% {
+    transform: translate(4px, -8px);
+  }
+  98% {
     transform: translate(-6px, -6px);
   }
-  96%,
+  98.7%,
   100% {
     transform: none;
   }
 }
 @keyframes glitch2 {
   0%,
-  80% {
-    transform: none;
-  }
-  81.2% {
-    transform: translate(-4px, -6px);
-  }
-  82% {
-    transform: none;
-  }
-  85.4% {
-    transform: none;
-  }
-  86% {
-    transform: translate(6px, -4px);
-  }
-  87% {
-    transform: none;
-  }
-  90.4% {
-    transform: none;
-  }
-  91% {
-    transform: translate(-6px, -2px);
-  }
   90% {
     transform: none;
   }
-  94.4% {
+  90.7% {
+    transform: translate(-12px, -12px);
+  }
+  92%,
+  94% {
     transform: none;
   }
-  95% {
-    transform: translate(4px, 8px);
+  94.7% {
+    transform: translate(-12px, -12px);
   }
+  95%,
   96% {
     transform: none;
   }
+  96.7%,
+  97.7% {
+    transform: translate(-8px, 16px);
+  }
+  98% {
+    transform: translate(12px, 12px);
+  }
+  98.7%,
   100% {
     transform: none;
   }
 }
 @keyframes glitch3 {
   0%,
-  80% {
-    transform: none;
-  }
-  81.4% {
-    transform: translate(4px, 6px);
-  }
-  82% {
-    transform: none;
-  }
-  85.4% {
-    transform: none;
-  }
-  86% {
-    transform: translate(6px, 4px);
-  }
-  87% {
-    transform: none;
-  }
-  90.4% {
-    transform: none;
-  }
-  91% {
-    transform: translate(6px, 2px);
-  }
   90% {
     transform: none;
   }
-  94.4% {
+  90.7% {
+    transform: translate(-6px, -6px);
+  }
+  92%,
+  94% {
     transform: none;
   }
-  95% {
-    transform: translate(-4px, -8px);
+  94.7% {
+    transform: translate(-6px, -6px);
   }
+  95%,
   96% {
     transform: none;
   }
+  96.7%,
+  97.7% {
+    transform: translate(-4px, 8px);
+  }
+  98% {
+    transform: translate(6px, 6px);
+  }
+  98.7%,
   100% {
     transform: none;
   }

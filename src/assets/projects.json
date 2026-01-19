@@ -13,23 +13,23 @@
     },
     {
       "id": 2,
+      "title": "Nuxt Travel App",
+      "image": "/Tristan-Carter-Vue/Nuxt-Travel-App.png",
+      "small-desc": "map app with locations",
+      "about": "A full-stack app, written with Nuxt 4, DaisyUI, and Turso. This is a reimplementation of an existing app for personal development purposes. ",
+      "link1": "www.yelp.com",
+      "link2": "www.google.com",
+      "featured": true,
+      "category": "software"
+    },
+    {
+      "id": 3,
       "title": "David Chu's China Bistro",
       "image": "/Tristan-Carter-Vue/David-Chus.png",
       "small-desc": "restauraunt website layout",
       "about": "A pixel-perfect implementation of the original website, refactored from Bootstrap 3 to Bootstrap 5. This website was built as a capstone for a web development certification course.",
       "link1": "https://tristan2772.github.io/DavidChusChinaBistro/",
       "link2": "https://github.com/Tristan2772/DavidChusChinaBistro",
-      "featured": true,
-      "category": "software"
-    },
-    {
-      "id": 3,
-      "title": "Shopify Project",
-      "image": "/Tristan-Carter-Vue/tristan-carter.jpeg",
-      "small-desc": "small photo description",
-      "about": "Collaborating with a local artist to increase their online product sales. This ecommerce web app is using a Nuxt and Vuetify front end with a headless Shopify API backend.",
-      "link1": "www.yelp.com",
-      "link2": "www.google.com",
       "featured": true,
       "category": "software"
     }

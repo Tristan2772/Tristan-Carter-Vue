@@ -3,7 +3,7 @@ import HomeDetails from '@/components/homePageComponents/HomeDetails.vue'
 import HomeProjects from '@/components/homePageComponents/HomeProjects.vue'
 // import HomeBlog from '@/components/homePageComponents/HomeBlog.vue'
 import HomeContact from '@/components/homePageComponents/HomeContact.vue'
-import HomeServices from '@/components/homePageComponents/HomeServices.vue';
+import HomeServices from '@/components/homePageComponents/HomeServices.vue'
 </script>
 
 <template>

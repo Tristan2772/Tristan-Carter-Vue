@@ -46,6 +46,9 @@ const router = createRouter({
       component: () => import('../views/FaqPage.vue'),
     },
   ],
+  scrollBehavior() {
+    return { top: 0 }
+  },
 })
 
 export default router

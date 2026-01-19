@@ -1,13 +1,12 @@
 <script setup>
-import jsonData from "../assets/faq.json";
-const questions = jsonData.questions;
+import jsonData from '../assets/faq.json'
+const questions = jsonData.questions
 </script>
 
 <template>
-  <section >
+  <section>
     <h2>FAQ</h2>
     <div>
-
       <details v-for="question in questions" :key="question.index">
         <summary>
           {{ question.q }}
@@ -17,21 +16,19 @@ const questions = jsonData.questions;
         </p>
       </details>
     </div>
-
   </section>
 </template>
 
-<style>
-  section {
-    background: var(--bg);
+<style scoped>
+section {
+  background: var(--bg);
 
-    div{
-      display: flex;
-      flex-direction: column;
-      gap: var(--md-gap);
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--md-gap);
 
-
-      details {
+    details {
       border: 2px solid var(--accent);
       border-radius: 20px;
       line-height: 1.5;
@@ -42,13 +39,11 @@ const questions = jsonData.questions;
       }
 
       p {
-
         padding: var(--md-gap) var(--lg-gap);
       }
     }
     details:hover {
       border: var(--border);
-
     }
     details[open] {
       border: var(--border);

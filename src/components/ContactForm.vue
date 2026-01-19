@@ -1,163 +1,209 @@
 <script setup>
-import { Field, Form, ErrorMessage } from 'vee-validate';
-import { ref } from 'vue';
-import { CgSpinner } from "vue-icons-plus/cg";
+import { Field, Form, ErrorMessage } from 'vee-validate'
+import { ref } from 'vue'
+import { CgSpinner } from 'vue-icons-plus/cg'
+import { BiPaperPlane } from 'vue-icons-plus/bi'
 
 const form = ref({
-  name: "",
+  name: '',
   email: '',
-  number:'',
+  number: '',
   subject: '',
   message: '',
 })
 
 const formRef = ref(null)
 const loading = ref(false)
-const status = ref("")
-const toast = ref("")
+const status = ref('')
+const toast = ref('')
 
 async function submitForm() {
   loading.value = true
-  status.value = ""
+  status.value = ''
   const body = new FormData()
-  body.append("name", form.value.name)
-  body.append("email", form.value.email)
-  body.append("number", form.value.number)
-  body.append("subject", form.value.subject)
-  body.append("message", form.value.message)
-  const result = await fetch("https://script.google.com/macros/s/AKfycbxRMNLC3jcIw5FGXDtKhITTd78iLEgABFxm7CtihPdqJEDuyhIs_Dkc--8QAfRxsq5PzQ/exec", {
-    method: "POST",
-    body
-  })
+  body.append('name', form.value.name)
+  body.append('email', form.value.email)
+  body.append('number', form.value.number)
+  body.append('subject', form.value.subject)
+  body.append('message', form.value.message)
+  const result = await fetch(
+    'https://script.google.com/macros/s/AKfycbxRMNLC3jcIw5FGXDtKhITTd78iLEgABFxm7CtihPdqJEDuyhIs_Dkc--8QAfRxsq5PzQ/exec',
+    {
+      method: 'POST',
+      body,
+    },
+  )
   const data = await result.json()
 
-  if (data.status==='success') {
+  if (data.status === 'success') {
     toast.value = 'Message sent!'
-    status.value = "success"
+    status.value = 'success'
     formRef.value.resetForm()
   } else {
-    toast.value = "An error occured!"
-    status.value = "error"
+    toast.value = 'An error occured!'
+    status.value = 'error'
   }
 
   loading.value = false
   setTimeout(() => {
-    toast.value = ""
-  }, 5000);
+    toast.value = ''
+  }, 5000)
 }
 
 function validateEmail(value) {
   // if the field is empty
   if (!value) {
-    return 'Required!';
+    return 'Required!'
   }
   // if the field is not a valid email
-  const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+  const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
   if (!regex.test(value)) {
-    return 'Invalid email!';
+    return 'Invalid email!'
   }
   // All is good
-  return true;
+  return true
 }
 
 function validatePhone(value) {
   if (!value) {
-    return "Required"
+    return 'Required'
   }
-  const regex = /^\+?\d{0,3}\s?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}?/;
+  const regex = /^\+?\d{0,3}\s?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}?/
   if (!regex.test(value)) {
-    return 'Invalid Phone!';
+    return 'Invalid Phone!'
   }
- return true;
+  return true
 }
 function validateName(value) {
   if (!value) {
-    return "Required"
+    return 'Required'
   }
-  const regex = /[a-zA-Z\s]/;
+  const regex = /[a-zA-Z\s]/
   if (!regex.test(value)) {
-    return 'Invalid Name!';
+    return 'Invalid Name!'
   }
- return true;
+  return true
 }
 function validateText(value) {
   if (!value) {
-    return "Required"
+    return 'Required'
   }
-  const regex = /[a-zA-Z\s0-9]/;
+  const regex = /[a-zA-Z\s0-9]/
   if (!regex.test(value)) {
-    return 'Invalid Subject!';
+    return 'Invalid Subject!'
   }
- return true;
+  return true
 }
 function validateMessage(value) {
   if (!value) {
-    return "Required"
+    return 'Required'
   }
-  const regex = /[a-zA-Z\s0-9]/;
+  const regex = /[a-zA-Z\s0-9]/
   if (!regex.test(value)) {
-    return 'Invalid Subject!';
+    return 'Invalid Subject!'
   }
- return true;
+  return true
 }
-
-
-
 </script>
 
 <template>
   <section id="contact">
-        <h2 class="heading">Contact</h2>
-        <p>Have a Question? Check out the <RouterLink to="/faq">faq</RouterLink> first!</p>
-
-
-
-
-
-        <Form ref="formRef" @submit="submitForm" name="contact-form" id="form-data">
-            <div id="input-group" >
-              <div>
-                <label for="fName">*Full Name:
-                  <Field id="fName" name="name" type="text" v-model="form.name" :disabled="loading" placeholder="Full Name"  :rules="validateName"/>
-                  <ErrorMessage name="name" />
-                </label>
-                <label for="fEmail">*Email:
-                  <Field id="fEmail" name="email" type="email" v-model="form.email" :disabled="loading" placeholder="example@mail.com" :rules="validateEmail" />
-                  <ErrorMessage name="email" />
-                </label>
-                <label for="fNumber">*Phone Number:
-                  <Field id="fNumber" name="number" type="text" v-model="form.number" :disabled="loading" placeholder="(###) ###-####" :rules="validatePhone"/>
-                  <ErrorMessage name="number" />
-                </label>
-                <label for="fSubject">*Subject:
-                  <Field id="fSubject" name="subject" type="text" v-model="form.subject" :disabled="loading" placeholder="Subject" :rules="validateText" />
-                  <ErrorMessage name="subject" />
-                </label>
-              </div>
-              <div>
-                <label for="fMessage">*Message:
-                  <Field id="fMessage" as="textarea" name="message" v-model="form.message" :disabled="loading" cols="30" rows="9" placeholder="Your Message" :rules="validateMessage"/>
-                  <ErrorMessage name="message" />
-                </label>
-              </div>
-            </div>
-            <div id="submission">
-                <button id="submit-btn" type="submit" :disabled="loading">Send Message</button>
-            </div>
-          </Form>
-
-
-
-
-        </section>
-        <teleport to="body"><div v-if="toast || loading" id="formToast" :class="{'error': status==='error', 'loading': loading}">
-          <button v-if="!loading" @click="toast=''">X</button>
-          <p v-if="!loading">{{ toast }}</p>
-          <p v-if="loading">
-            <CgSpinner />
-          </p>
-        </div></teleport>
-    </template>
+    <h2 class="heading">Contact</h2>
+    <p>Have a Question? Check out the <RouterLink to="/faq">faq</RouterLink> first!</p>
+    <Form ref="formRef" @submit="submitForm" name="contact-form" id="form-data">
+      <div id="input-group">
+        <div>
+          <label for="fName"
+            >*Full Name:
+            <Field
+              id="fName"
+              name="name"
+              type="text"
+              v-model="form.name"
+              :disabled="loading"
+              placeholder="Full Name"
+              :rules="validateName"
+            />
+            <ErrorMessage name="name" />
+          </label>
+          <label for="fEmail"
+            >*Email:
+            <Field
+              id="fEmail"
+              name="email"
+              type="email"
+              v-model="form.email"
+              :disabled="loading"
+              placeholder="example@mail.com"
+              :rules="validateEmail"
+            />
+            <ErrorMessage name="email" />
+          </label>
+          <label for="fNumber"
+            >*Phone Number:
+            <Field
+              id="fNumber"
+              name="number"
+              type="text"
+              v-model="form.number"
+              :disabled="loading"
+              placeholder="(###) ###-####"
+              :rules="validatePhone"
+            />
+            <ErrorMessage name="number" />
+          </label>
+          <label for="fSubject"
+            >*Subject:
+            <Field
+              id="fSubject"
+              name="subject"
+              type="text"
+              v-model="form.subject"
+              :disabled="loading"
+              placeholder="Subject"
+              :rules="validateText"
+            />
+            <ErrorMessage name="subject" />
+          </label>
+        </div>
+        <div>
+          <label for="fMessage"
+            >*Message:
+            <Field
+              id="fMessage"
+              as="textarea"
+              name="message"
+              v-model="form.message"
+              :disabled="loading"
+              cols="30"
+              rows="9"
+              placeholder="Your Message"
+              :rules="validateMessage"
+            />
+            <ErrorMessage name="message" />
+          </label>
+        </div>
+      </div>
+      <div id="submission">
+        <button id="submit-btn" type="submit" class="contact-btn" :disabled="loading">
+          Send Message <BiPaperPlane size="24" />
+        </button>
+      </div>
+    </Form>
+  </section>
+  <teleport to="body"
+    ><div
+      v-if="toast || loading"
+      id="formToast"
+      :class="{ error: status === 'error', loading: loading }"
+    >
+      <button v-if="!loading" @click="toast = ''">X</button>
+      <p v-if="!loading">{{ toast }}</p>
+      <p v-if="loading">
+        <CgSpinner />
+      </p></div
+  ></teleport>
+</template>
 
 <style scoped>
 #contact {
@@ -175,7 +221,7 @@ function validateMessage(value) {
     }
   }
 }
-#contact form{
+#contact form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -193,14 +239,14 @@ function validateMessage(value) {
   flex-wrap: wrap;
 }
 
-#input-group div{
+#input-group div {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   width: 45%;
 }
 
-#input-group div label{
+#input-group div label {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -209,7 +255,7 @@ function validateMessage(value) {
 }
 
 #input-group div label input,
-#input-group div label textarea{
+#input-group div label textarea {
   width: 100%;
   background: var(--bg);
   border: 2px solid var(--primary);
@@ -225,7 +271,7 @@ function validateMessage(value) {
   cursor: progress;
 }
 
-#input-group div label span{
+#input-group div label span {
   text-align: left;
   font-size: 16px;
   color: red;
@@ -235,26 +281,47 @@ function validateMessage(value) {
 }
 
 #submission {
+  .contact-btn {
+    margin-top: var(--md-gap);
+    font-size: var(--fs-sm);
+    height: auto;
+    width: fit-content;
+    padding: var(--sm-gap) var(--md-gap);
+    box-shadow: var(--primary-shadow);
+    color: black;
+    border: 2px solid var(--primary);
+    border-radius: 25px;
+    transition: ease-out 350ms;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--md-gap);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .contact-btn:hover {
+    scale: 1.1;
+    box-shadow: var(--primary-shadow2);
+    transition: var(--transition);
+  }
 
   button {
-    margin-top: var(--md-gap);
-  font-size: var(--fs-sm);
-  display: inline-block;
-  padding: var(--sm-gap) var(--md-gap);
-  background: var(--primary);
-  box-shadow: var(--primary-shadow);
-  border-radius: 20px;
-  color: black;
-  border: 2px solid transparent;
-  font-weight: 600;
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
+    padding: var(--sm-gap) var(--md-gap);
+    background: var(--primary);
+    border-radius: 20px;
+    color: black;
+    border: 2px solid transparent;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
   }
   button:hover {
-  transform: scale(1.05);
-  box-shadow: var(--primary-shadow2);
+    transform: scale(1.05);
+    box-shadow: var(--primary-shadow2);
   }
 }
+
 #formToast {
   position: fixed;
   bottom: 20px;
@@ -262,7 +329,7 @@ function validateMessage(value) {
   padding: var(--sm-gap) var(--md-gap);
   background-color: var(--content-bg);
   border: var(--border);
-  border-radius:10px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   gap: var(--md-gap);
@@ -288,7 +355,7 @@ function validateMessage(value) {
 #formToast.error {
   border-color: red;
 
-  p{
+  p {
     color: white;
   }
 }
@@ -298,11 +365,11 @@ function validateMessage(value) {
   right: 50%;
   transform: translate(50%, 50%);
 
-  p{
+  p {
     width: max-content;
     aspect-ratio: 1/1;
     transform-origin: center center;
-    animation: loading 1s linear infinite ;
+    animation: loading 1s linear infinite;
   }
 }
 
@@ -316,7 +383,7 @@ function validateMessage(value) {
 }
 
 @media screen and (max-width: 600px) {
-  #contact form #input-group{
+  #contact form #input-group {
     flex-direction: column;
     align-items: center;
     gap: 0px;
@@ -326,10 +393,9 @@ function validateMessage(value) {
   }
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width: 400px) {
   #input-group div {
     width: 90%;
   }
 }
-
 </style>

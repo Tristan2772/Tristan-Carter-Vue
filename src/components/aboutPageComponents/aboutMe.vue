@@ -1,6 +1,5 @@
 <script setup>
-import SocialLinks from '../SocialLinks.vue';
-
+import SocialLinks from '../SocialLinks.vue'
 </script>
 
 <template>
@@ -11,13 +10,13 @@ import SocialLinks from '../SocialLinks.vue';
       <div class="details">
         <h2>About Me</h2>
         <p>
-          I am a freelance full-stack web developer that loves building smooth, responsive,
-          user-focused experiences with Nuxt. I enjoy turning ideas into performant, accessible
-          websites and apps with an intuitive design. I am always learning and expanding my skills,
-          from full-stack development to experimenting with the Unity game engine and even hands-on
-          PC hardware upgrades. Whether it's a business site, a personal project, or something
-          experimental, I bring a genuine passion for building projects that are polished,
-          puposeful, and built to last.
+          I am a freelance full-stack web developer. I love building smooth, responsive,
+          user-focused experiences with JavaScript. I got introduced to programming in high school,
+          where I built small games in python and scratch, and have been building ever since. I am
+          always learning and expanding my skills, from full-stack development to experimenting with
+          the Unity game engine and even hands-on PC hardware upgrades. No matter the project, I
+          bring a genuine passion for building clean and intuitive designs while implementing best
+          practices and standards.
         </p>
         <SocialLinks />
       </div>
@@ -47,7 +46,7 @@ section {
       justify-content: center;
       text-align: center;
       line-height: var(--lh2);
-      h2{
+      h2 {
         padding-bottom: var(--md-gap);
       }
     }

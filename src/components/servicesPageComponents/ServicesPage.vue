@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import ServicesList from './ServicesList.vue';
-
+import ServicesList from './ServicesList.vue'
 </script>
 
 <template>
@@ -12,6 +11,6 @@ import ServicesList from './ServicesList.vue';
 
 <style scoped>
 section {
-  background-color: var(--bg2);
+  background-color: var(--bg);
 }
 </style>

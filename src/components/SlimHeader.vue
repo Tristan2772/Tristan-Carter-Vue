@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watchEffect } from "vue";
+import { ref, watchEffect } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import AnimatedText from './animationComponents/AnimatedText.vue'
 // import ThemeBtn from './ThemeBtn.vue'
@@ -7,38 +7,37 @@ import AnimatedText from './animationComponents/AnimatedText.vue'
 const route = useRoute()
 const activeBase = ref('')
 
-const home = "/"
-const services = "/services"
-const projects = "/projects"
-const contact = "/contact"
-const about = "/about"
+const home = '/'
+const services = '/services'
+const projects = '/projects'
+const contact = '/contact'
+const about = '/about'
 
 watchEffect(() => {
   const currentBase = route.path
 
   switch (true) {
-    case currentBase===home || currentBase.startsWith(home + '/'):
-      activeBase.value=home
-      break;
-    case currentBase===services || currentBase.startsWith(services + '/'):
-      activeBase.value=services
-      break;
-    case currentBase===projects || currentBase.startsWith(projects + '/'):
-      activeBase.value=projects
-      break;
-    case currentBase===contact || currentBase.startsWith(contact + '/'):
-      activeBase.value=contact
-      break;
-    case currentBase===about || currentBase.startsWith(about + '/'):
-      activeBase.value=about
-      break;
+    case currentBase === home || currentBase.startsWith(home + '/'):
+      activeBase.value = home
+      break
+    case currentBase === services || currentBase.startsWith(services + '/'):
+      activeBase.value = services
+      break
+    case currentBase === projects || currentBase.startsWith(projects + '/'):
+      activeBase.value = projects
+      break
+    case currentBase === contact || currentBase.startsWith(contact + '/'):
+      activeBase.value = contact
+      break
+    case currentBase === about || currentBase.startsWith(about + '/'):
+      activeBase.value = about
+      break
 
     default:
       activeBase.value = ''
-      break;
+      break
   }
 })
-
 </script>
 
 <template>
@@ -49,24 +48,28 @@ watchEffect(() => {
 
       <!-- links -->
       <nav>
-        <router-link class="nav-link" to="/services" :class="{active: activeBase === '/services'}">
-          <AnimatedText>Services</AnimatedText>
-          <!-- <p v-if="!is-active">Services</p> -->
+        <router-link
+          class="nav-link"
+          to="/services"
+          :class="{ active: activeBase === '/services' }"
+        >
+          <AnimatedText :class="{ active: activeBase === '/services' }">Services</AnimatedText>
         </router-link>
-        <router-link class="nav-link" to="/projects" :class="{active: activeBase === '/projects'}">
-          <AnimatedText>Projects</AnimatedText>
-          <!-- <p v-if="!is-active">Projects</p> -->
+        <router-link
+          class="nav-link"
+          to="/projects"
+          :class="{ active: activeBase === '/projects' }"
+        >
+          <AnimatedText :class="{ active: activeBase === '/projects' }">Projects</AnimatedText>
         </router-link>
         <!-- <router-link class="nav-link" to="/blog">
           <AnimatedText>Blog</AnimatedText>
         </router-link> -->
-        <router-link class="nav-link" to="/contact" :class="{active: activeBase === '/contact'}">
-          <AnimatedText>Contact</AnimatedText>
-          <!-- <p v-if="!is-active">Contact</p> -->
+        <router-link class="nav-link" to="/contact" :class="{ active: activeBase === '/contact' }">
+          <AnimatedText :class="{ active: activeBase === '/contact' }">Contact</AnimatedText>
         </router-link>
-        <router-link class="nav-link" to="/about" :class="{active: activeBase === '/about'}">
-          <AnimatedText>About</AnimatedText>
-          <!-- <p v-if="!is-active">About</p> -->
+        <router-link class="nav-link" to="/about" :class="{ active: activeBase === '/about' }">
+          <AnimatedText :class="{ active: activeBase === '/about' }">About</AnimatedText>
         </router-link>
 
         <!-- Hide on lower bandwidth devices or prefers reduced motion -->
@@ -137,17 +140,14 @@ header {
   }
 }
 
-  @media screen and (max-width:700px) {
-    header {
-
-      .container{
-        nav{
-          justify-content: flex-start;
-          flex-wrap: wrap;
-        }
+@media screen and (max-width: 700px) {
+  header {
+    .container {
+      nav {
+        justify-content: flex-start;
+        flex-wrap: wrap;
       }
     }
   }
-
-
-  </style>
+}
+</style>

@@ -1,14 +1,24 @@
-<script setup></script>
+<script setup>
+import { BiAbacus, BiMailSend } from 'vue-icons-plus/bi'
+</script>
 
 <template>
   <section id="home-contact">
     <div>
       <h2>Contact Me!</h2>
       <p>
-        If you have any questions, please refer to the <router-link to="/faq">faq</router-link>. If you don't
-        see an answer for your question, feel free to ask in the
-        <router-link to="/contact">form</router-link> or simply <a href="mailto:tristancarter2772@gmail.com">email me</a>.
+        If you have any questions, please refer to the <router-link to="/faq">faq</router-link>. If
+        you don't see an answer for your question or just want to contact me directly, feel free to
+        fill out the form or simply email me.
       </p>
+      <div>
+        <router-link to="/contact" class="contact-btn"
+          >Fill out the form! <BiAbacus size="24"
+        /></router-link>
+        <a class="contact-btn" href="mailto:tristancarter2772@gmail.com"
+          >Simply Email! <BiMailSend size="24"
+        /></a>
+      </div>
     </div>
   </section>
 </template>
@@ -37,8 +47,39 @@ section#home-contact {
     p {
       line-height: var(--lh2);
       font-size: var(--fs-sm);
+
       a {
         color: black;
+      }
+    }
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: var(--lg-gap);
+      margin-top: var(--md-gap);
+
+      .contact-btn {
+        height: auto;
+        width: fit-content;
+        padding: var(--sm-gap) var(--md-gap);
+        color: var(--primary);
+        border: 2px solid var(--accent);
+        border-radius: 25px;
+        transition: ease-out 350ms;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: var(--md-gap);
+        text-decoration: none;
+        font-weight: 300;
+      }
+      .contact-btn:hover {
+        scale: 1.1;
+        box-shadow: var(--dark-shadow);
+        transition: var(--transition);
       }
     }
   }

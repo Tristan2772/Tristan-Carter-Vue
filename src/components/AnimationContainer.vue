@@ -21,7 +21,6 @@ const { animationClass } = inject('animationClass')
   width: 99%;
   margin: 0 auto;
   height: 100dvh;
-  overflow: hidden;
   pointer-events: none;
   z-index: -10;
 }

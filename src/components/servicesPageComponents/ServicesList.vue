@@ -1,34 +1,35 @@
 <template>
-<div class="services-container">
-  <div class="service-card">
-    <h3>Full-Stack Development</h3>
-    <p>
-      Full-stack development encompasses both front-end and back-end technologies. The front-end is all the elements
-      and interactions a user has with a website, including everything they see. The back-end is all the interactions
-      a website has with a server, like database calls and user authentification.
-    </p>
+  <div class="services-container">
+    <div class="service-card">
+      <h3>Full-Stack Development</h3>
+      <p>
+        Full-stack development encompasses both front-end and back-end technologies. From all the
+        elements a user can see and interact with, to database calls and user authentification.
+      </p>
+    </div>
+    <div class="service-card">
+      <h3>SEO</h3>
+      <p>
+        Search Engine Optimization (SEO) refers to the many practices and techniques that rank your
+        website higher in the list of search results when you look something up on Google or Bing.
+      </p>
+    </div>
+    <div class="service-card">
+      <h3>Consultation</h3>
+      <p>
+        Consultation services for when you need advice on site maintenance, guidance with a new
+        feature, or if you would just like a third-party audit of your codebase.
+      </p>
+    </div>
+    <div class="service-card">
+      <h3>Web Performance Optimization</h3>
+      <p>
+        The optimization of web performance, also known as core web vitals, is the process of
+        reducing database calls or page load times by various means, resulting in a better user
+        experience.
+      </p>
+    </div>
   </div>
-  <div class="service-card">
-    <h3>SEO</h3>
-    <p>
-      Search Engine Optimization (SEO) refers to the many practices and techniques that rank your website higher in
-      the list of search results when you look something up on Google or Bing.
-    </p>
-  </div>
-  <div class="service-card">
-    <h3>Consultation</h3>
-    <p>
-      Consultation services for when you need advice on site maintenance, guidance with a new feature, or if you would
-      just like a third-party audit of your codebase.
-    </p>
-  </div>
-  <div class="service-card">
-    <h3>Web Performance Optimization</h3>
-    <p>The optimization of web performance, also known as core web vitals, is the process of reducing page load times by various means. This directly translates
-      to more conversions on the app and a better user experience for everybody.
-    </p>
-  </div>
-</div>
 </template>
 
 <style scoped>
@@ -48,7 +49,8 @@
   gap: var(--sm-gap);
   transition:
     border var(--transition),
-    scale var(--transition);
+    scale var(--transition),
+    background-color var(--transition);
 
   h3 {
     padding-bottom: var(--sm-gap);
@@ -64,6 +66,7 @@
 .service-card:hover {
   border: var(--border);
   scale: 1.05;
+  background-color: var(--content-bg);
 
   h3 {
     color: var(--primary);
@@ -85,13 +88,12 @@
 
 @media screen and (max-width: 850px) {
   .services-container {
-  display: flex;
-  flex-direction: column;
-  gap: var(--lg-gap);
-  text-align: left;
-}
+    display: flex;
+    flex-direction: column;
+    gap: var(--lg-gap);
+    text-align: left;
+  }
   .service-card {
-
     h3 {
       padding: 0 var(--sm-gap);
       padding-bottom: 0px;
@@ -99,14 +101,14 @@
     }
 
     p {
-    text-align: left;
-  }
+      text-align: left;
+    }
   }
   .service-card:nth-child(1),
   .service-card:nth-child(2),
   .service-card:nth-child(3),
   .service-card:nth-child(4) {
-  transform-origin: center bottom;
-}
+    transform-origin: center bottom;
+  }
 }
 </style>
