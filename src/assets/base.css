@@ -1,16 +1,10 @@
 :root {
-  --primary: #08f508;
-  --secondary: #579e35;
-  --accent: #224d0e;
-  --body-bg: rgb(14, 14, 14);
-  --bg: rgba(97, 91, 91, 0.2);
-  --bg2: rgba(0, 0, 0, 0.2);
-  --content-bg: rgba(0, 0, 0, 0.8);
-  --text-color: white;
-  --primary-shadow: 0 0 8px var(--primary);
-  --primary-shadow2: 0 0 12px var(--primary);
-  --primary-shadow3: 0 0 16px var(--primary);
-  --dark-shadow: 4px 4px 8px black;
+  --header-font: 'Verdana';
+  --content-font: 'Arial';
+  --fs-lg: 34px;
+  --fs-md: 28px;
+  --fs-sm: 20px;
+  --fs-xs: 18px;
   --border: 2px solid var(--primary);
   --content-width: 90%;
   --lh: 1.2;
@@ -20,12 +14,29 @@
   --lg-gap: 40px;
   --xl-gap: 60px;
   --transition: 0.2s ease-out;
-  --header-font: 'Verdana';
-  --content-font: 'Helvetica';
-  --fs-lg: 34px;
-  --fs-md: 28px;
-  --fs-sm: 20px;
-  --fs-xs: 18px;
+  --primary: #08f508;
+  --secondary: #579e35;
+  --accent: #224d0e;
+  --body-bg: rgb(12, 12, 12);
+  --bg: rgba(97, 91, 91, 0.2);
+  --bg2: rgba(0, 0, 0, 0.2);
+  --text-color: white;
+  --primary-shadow: 0 0 8px var(--primary);
+  --primary-shadow2: 0 0 12px var(--primary);
+  --primary-shadow3: 0 0 16px var(--primary);
+  --dark-shadow: 4px 4px 8px black;
+  --button-gradient: linear-gradient(
+    var(--secondary) 0%,
+    var(--primary) 15%,
+    var(--primary) 85%,
+    var(--accent) 100%
+  );
+  --dark-button-gradient: linear-gradient(
+    var(--secondary) 0%,
+    var(--body-bg) 15%,
+    var(--body-bg) 85%,
+    black 100%
+  );
 }
 
 *,
@@ -79,15 +90,6 @@ hr.divider {
   min-height: 50px;
   border: none;
 }
-
-/* --black-shadow: 0 0 8px #000000; */
-/* --black-shadow: 0 0 12px #000000; */
-/* --heading-color: ; */
-/* --gradient-primary:  */
-/* --gradient-secondary:  */
-/* --shadow: ; */
-/* --shadow-heavy: ; */
-/* --border2: ; */
 
 @media screen and (max-width: 520px) {
   :root {

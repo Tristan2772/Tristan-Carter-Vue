@@ -1,8 +1,32 @@
 <script setup>
 import { Field, Form, ErrorMessage } from 'vee-validate'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { CgSpinner } from 'vue-icons-plus/cg'
 import { BiPaperPlane } from 'vue-icons-plus/bi'
+
+const tookOff = ref(false)
+const planeCrash = ref(false)
+const planeSafe = ref(false)
+const planeReset = ref()
+
+onMounted(() => {
+  tookOff.value = false
+  planeCrash.value = false
+  planeSafe.value = false
+})
+
+function takeOff() {
+  clearTimeout(planeReset.value)
+  tookOff.value = false
+  planeCrash.value = false
+  planeSafe.value = false
+  tookOff.value = true
+  planeReset.value = setTimeout(() => {
+    tookOff.value = false
+    planeCrash.value = false
+    planeSafe.value = false
+  }, 5000)
+}
 
 const form = ref({
   name: '',
@@ -11,12 +35,10 @@ const form = ref({
   subject: '',
   message: '',
 })
-
 const formRef = ref(null)
 const loading = ref(false)
 const status = ref('')
 const toast = ref('')
-
 async function submitForm() {
   loading.value = true
   status.value = ''
@@ -36,10 +58,12 @@ async function submitForm() {
   const data = await result.json()
 
   if (data.status === 'success') {
+    planeSafe.value = true
     toast.value = 'Message sent!'
     status.value = 'success'
     formRef.value.resetForm()
   } else {
+    planeCrash.value = true
     toast.value = 'An error occured!'
     status.value = 'error'
   }
@@ -49,57 +73,65 @@ async function submitForm() {
     toast.value = ''
   }, 5000)
 }
-
 function validateEmail(value) {
   // if the field is empty
   if (!value) {
+    planeCrash.value = true
     return 'Required!'
   }
   // if the field is not a valid email
   const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
   if (!regex.test(value)) {
+    planeCrash.value = true
     return 'Invalid email!'
   }
   // All is good
   return true
 }
-
 function validatePhone(value) {
   if (!value) {
+    planeCrash.value = true
     return 'Required'
   }
   const regex = /^\+?\d{0,3}\s?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}?/
   if (!regex.test(value)) {
+    planeCrash.value = true
     return 'Invalid Phone!'
   }
   return true
 }
 function validateName(value) {
   if (!value) {
+    planeCrash.value = true
     return 'Required'
   }
   const regex = /[a-zA-Z\s]/
   if (!regex.test(value)) {
+    planeCrash.value = true
     return 'Invalid Name!'
   }
   return true
 }
 function validateText(value) {
   if (!value) {
+    planeCrash.value = true
     return 'Required'
   }
   const regex = /[a-zA-Z\s0-9]/
   if (!regex.test(value)) {
+    planeCrash.value = true
     return 'Invalid Subject!'
   }
   return true
 }
 function validateMessage(value) {
   if (!value) {
+    planeCrash.value = true
     return 'Required'
   }
   const regex = /[a-zA-Z\s0-9]/
   if (!regex.test(value)) {
+    planeCrash.value = true
     return 'Invalid Subject!'
   }
   return true
@@ -185,7 +217,18 @@ function validateMessage(value) {
         </div>
       </div>
       <div id="submission">
-        <button id="submit-btn" type="submit" class="contact-btn" :disabled="loading">
+        <button
+          id="submit-btn"
+          type="submit"
+          class="contact-btn"
+          @click="takeOff(planeReset)"
+          :class="{
+            active: tookOff === true,
+            crashed: planeCrash === true && planeSafe !== true,
+            safe: planeSafe === true,
+          }"
+          :disabled="loading"
+        >
           Send Message <BiPaperPlane size="24" />
         </button>
       </div>
@@ -260,7 +303,7 @@ function validateMessage(value) {
   background: var(--bg);
   border: 2px solid var(--primary);
   padding: var(--sm-gap);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-xs);
   color: var(--txt-color);
   border-radius: 15px;
   /* resize: none; */
@@ -282,35 +325,55 @@ function validateMessage(value) {
 
 #submission {
   .contact-btn {
-    margin-top: var(--md-gap);
-    font-size: var(--fs-sm);
     height: auto;
     width: fit-content;
-    padding: var(--sm-gap) var(--md-gap);
-    box-shadow: var(--primary-shadow);
-    color: black;
-    border: 2px solid var(--primary);
+    padding: var(--sm-gap) calc(var(--md-gap) + var(--sm-gap) + 24px) var(--sm-gap) var(--md-gap);
+    color: var(--body-bg);
+    font-size: var(--fs-xs);
+    border: 2px solid var(--accent);
     border-radius: 25px;
     transition: ease-out 350ms;
-    background-color: var(--primary);
+    background-image: var(--button-gradient);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: var(--md-gap);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: bold;
+    position: relative;
+
+    svg {
+      position: absolute;
+      right: var(--md-gap);
+    }
   }
   .contact-btn:hover {
     scale: 1.1;
-    box-shadow: var(--primary-shadow2);
+    box-shadow: var(--dark-shadow);
     transition: var(--transition);
+
+    svg {
+      transition: all 0.3s ease-out;
+      translate: -5px 8px;
+      rotate: -15deg;
+      scale: 1.05;
+    }
+  }
+  .contact-btn.active.crashed {
+    svg {
+      animation: plane-crash 1s 1 linear;
+    }
+  }
+  .contact-btn.safe {
+    svg {
+      animation: plane-safe 1s 1 linear;
+    }
   }
 
   button {
     padding: var(--sm-gap) var(--md-gap);
     background: var(--primary);
     border-radius: 20px;
-    color: black;
+    color: var(--body-bg);
     border: 2px solid transparent;
     font-weight: 600;
     transition: 0.3s ease-in-out;
@@ -327,7 +390,7 @@ function validateMessage(value) {
   bottom: 20px;
   right: 20px;
   padding: var(--sm-gap) var(--md-gap);
-  background-color: var(--content-bg);
+  background-color: var(--body-bg);
   border: var(--border);
   border-radius: 10px;
   display: flex;
@@ -379,6 +442,45 @@ function validateMessage(value) {
   }
   100% {
     rotate: 360deg;
+  }
+}
+
+@keyframes plane-crash {
+  35% {
+    color: red;
+    translate: 45px -30px;
+    rotate: 15deg;
+    scale: 0.95;
+    filter: drop-shadow(10px 10px 10px black);
+  }
+  50% {
+    translate: 60px -30px;
+  }
+  65% {
+    translate: 80px -20px;
+    scale: 0.75;
+  }
+  80%,
+  to {
+    translate: 120px 8px;
+    rotate: 115deg;
+    scale: 0.45;
+    color: red;
+  }
+}
+@keyframes plane-safe {
+  25% {
+    color: var(--primary);
+  }
+  80% {
+    translate: 80px -60px;
+    rotate: 30deg;
+    scale: 0.25;
+  }
+  100% {
+    translate: 100px -65px;
+    rotate: 30deg;
+    scale: 0.05;
   }
 }
 

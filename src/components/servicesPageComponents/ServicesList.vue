@@ -66,7 +66,7 @@
 .service-card:hover {
   border: var(--border);
   scale: 1.05;
-  background-color: var(--content-bg);
+  background-color: var(--body-bg);
 
   h3 {
     color: var(--primary);

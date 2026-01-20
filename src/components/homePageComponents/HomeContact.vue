@@ -8,8 +8,8 @@ import { BiAbacus, BiMailSend } from 'vue-icons-plus/bi'
       <h2>Contact Me!</h2>
       <p>
         If you have any questions, please refer to the <router-link to="/faq">faq</router-link>. If
-        you don't see an answer for your question or just want to contact me directly, feel free to
-        fill out the form or simply email me.
+        you don't see an answer for your question or just want to contact me, feel free to fill out
+        the form or simply email me.
       </p>
       <div>
         <router-link to="/contact" class="contact-btn"
@@ -36,12 +36,12 @@ section#home-contact {
     var(--secondary)
   );
   border: var(--border);
-  color: black;
+  color: var(--body-bg);
   text-align: center;
   div {
     margin: auto 0;
     h2 {
-      color: black;
+      color: var(--body-bg);
       padding-bottom: var(--md-gap);
     }
     p {
@@ -49,7 +49,7 @@ section#home-contact {
       font-size: var(--fs-sm);
 
       a {
-        color: black;
+        color: var(--body-bg);
       }
     }
     div {
@@ -68,7 +68,7 @@ section#home-contact {
         border: 2px solid var(--accent);
         border-radius: 25px;
         transition: ease-out 350ms;
-        background-color: black;
+        background-image: var(--dark-button-gradient);
         display: flex;
         justify-content: center;
         align-items: center;

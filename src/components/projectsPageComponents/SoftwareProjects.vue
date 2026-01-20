@@ -102,8 +102,14 @@ const softwareProjectData = projectData.filter((project) => project.category == 
   border-radius: 20px 0 0 20px;
   background-image: linear-gradient(135deg, var(--bg2), var(--bg2), var(--bg));
 
-  .details div.links {
-    text-align: right;
+  .details {
+    p {
+      border-right: 2px solid var(--bg);
+      border-left: none;
+    }
+    div.links {
+      text-align: right;
+    }
   }
 }
 
@@ -132,9 +138,14 @@ const softwareProjectData = projectData.filter((project) => project.category == 
     border-left: solid 6px var(--primary);
     border-radius: 0 20px 20px 0;
     background-image: linear-gradient(225deg, var(--bg2), var(--bg2), var(--bg));
-  }
-  .details div.links {
-    text-align: left;
+    .details {
+      p {
+        border-left: 2px solid var(--bg);
+      }
+      div.links {
+        text-align: left;
+      }
+    }
   }
 }
 @media screen and (max-width: 500px) {

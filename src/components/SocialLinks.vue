@@ -46,8 +46,8 @@ import {
   }
   a:hover {
     scale: 1.1;
-    color: black;
-    background-color: var(--primary);
+    color: var(--body-bg);
+    background-image: radial-gradient(var(--secondary), var(--primary));
     box-shadow: var(--primary-shadow);
     transition: var(--transition);
   }
