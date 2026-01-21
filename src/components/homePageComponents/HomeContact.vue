@@ -213,4 +213,10 @@ section#home-contact {
     );
   }
 }
+@media screen and (max-width: 520px) {
+  section#home-contact {
+    border-left: none;
+    border-right: none;
+  }
+}
 </style>

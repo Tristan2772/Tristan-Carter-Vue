@@ -380,21 +380,6 @@ function validateMessage(value) {
     scale: 1;
     transition: none;
   }
-
-  button {
-    padding: var(--sm-gap) var(--md-gap);
-    background: var(--primary);
-    border-radius: 20px;
-    color: var(--body-bg);
-    border: 2px solid transparent;
-    font-weight: 600;
-    transition: 0.3s ease-in-out;
-    cursor: pointer;
-  }
-  button:hover {
-    transform: scale(1.05);
-    box-shadow: var(--primary-shadow2);
-  }
 }
 
 #formToast {
@@ -412,6 +397,7 @@ function validateMessage(value) {
   backdrop-filter: blur(10px);
 
   button {
+    min-width: 20px;
     aspect-ratio: 1/1;
     padding: 5px;
     border: var(--border);

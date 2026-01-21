@@ -45,10 +45,12 @@ section {
         padding-left: var(--sm-gap);
         cursor: pointer;
         font-size: var(--fs-sm);
-        list-style-type: none;
         display: flex;
         flex-direction: row;
         align-items: flex-start;
+
+        list-style-type: none;
+
         svg {
           color: var(--text-color);
           font-size: var(--fs-sm);
@@ -56,6 +58,9 @@ section {
           margin-right: var(--sm-gap);
           translate: 0 2px;
         }
+      }
+      summary::webkit-details-marker {
+        display: none;
       }
 
       p {

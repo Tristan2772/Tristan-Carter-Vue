@@ -14,7 +14,7 @@ import SocialLinks from '../SocialLinks.vue'
           presence.
         </p>
         <p>
-          I provide everything from consulting to full-stack development, from advice to complete
+          I provide everything from consulting to full-stack development. From advice to complete
           apps.
         </p>
       </div>
@@ -56,7 +56,7 @@ import SocialLinks from '../SocialLinks.vue'
       text-align: left;
       color: var(--text-color);
       padding-bottom: var(--sm-gap);
-      white-space: pre;
+      font-size: 30px;
     }
     div.info {
       border-left: 2px solid var(--bg);
@@ -102,6 +102,7 @@ import SocialLinks from '../SocialLinks.vue'
   width: 100%;
   font-family: monospace;
   color: transparent;
+  white-space: pre;
 }
 #change-text-animation::before {
   font-size: 1em;
