@@ -24,12 +24,10 @@ npm run dev
 
 ### Compile and Minify for Production
 
+delete current dist folder
+run build command
+upload new dist folder to gh-pages branch
+
 ```sh
 npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```

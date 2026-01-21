@@ -221,4 +221,7 @@ hr.divider {
     animation: none !important;
     transition: none !important;
   }
+  #change-text-animation {
+    color: var(--primary) !important;
+  }
 }
