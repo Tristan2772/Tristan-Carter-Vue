@@ -1,1 +1,0 @@
-import{d as c,c as r,o as s,a as o,b as n,S as _,_ as p,e as i}from"./index-DtAlZufk.js";const l=c({__name:"ServicesPage",setup(a){return(t,e)=>(s(),r("section",null,[e[0]||(e[0]=o("h2",null,"My Services",-1)),n(_)]))}}),u=p(l,[["__scopeId","data-v-4a4a6885"]]),d={__name:"ServicesPage",setup(a){return(t,e)=>(s(),i(u))}};export{d as default};
