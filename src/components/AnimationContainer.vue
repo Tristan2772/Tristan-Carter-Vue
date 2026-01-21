@@ -1,15 +1,16 @@
 <script setup>
 import GlitchyTheme from './animationComponents/GlitchyTheme.vue'
-import { ref, inject } from 'vue'
+import { inject, ref } from 'vue'
 
-const animationContainer = ref(null)
 const { animationClass } = inject('animationClass')
+
+const reducedMotion = ref(window.matchMedia('(prefers-reduced-motion: reduce)'))
 </script>
 
 <!-- change animation-container class on button click in header, under themes tab -->
 
 <template>
-  <div id="animation-container" ref="animationContainer">
+  <div v-show="reducedMotion.value" id="animation-container">
     <GlitchyTheme v-if="animationClass === 'glitch'" />
   </div>
 </template>

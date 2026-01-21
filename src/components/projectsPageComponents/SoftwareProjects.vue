@@ -41,13 +41,14 @@ const softwareProjectData = projectData.filter((project) => project.category == 
   flex-direction: row;
   align-items: center;
   padding-left: var(--md-gap);
-  background-image: linear-gradient(45deg, var(--bg), var(--bg2), var(--bg2));
+  background-color: var(--body-bg);
   background-repeat: no-repeat;
   border-left: solid 6px var(--primary);
   border-bottom: 2px solid var(--bg);
   border-top: 2px solid var(--bg);
   border-right: 2px solid var(--bg);
   border-radius: 0 20px 20px 0;
+  transition: var(--transition);
 
   img {
     display: block;
@@ -55,6 +56,7 @@ const softwareProjectData = projectData.filter((project) => project.category == 
     width: 36%;
     margin: var(--md-gap) 0;
     border-radius: 15px;
+    border: 2px solid var(--bg);
   }
   .details {
     padding: var(--md-gap);
@@ -100,7 +102,6 @@ const softwareProjectData = projectData.filter((project) => project.category == 
   border-left: solid 2px var(--bg);
   border-right: solid 6px var(--primary);
   border-radius: 20px 0 0 20px;
-  background-image: linear-gradient(135deg, var(--bg2), var(--bg2), var(--bg));
 
   .details {
     p {
@@ -111,6 +112,19 @@ const softwareProjectData = projectData.filter((project) => project.category == 
       text-align: right;
     }
   }
+}
+
+.project-card:nth-child(odd):hover {
+  animation: shine 0.2s linear;
+  border-bottom: 2px solid var(--primary);
+  border-top: 2px solid var(--primary);
+  border-right: 2px solid var(--primary);
+}
+.project-card:nth-child(even):hover {
+  animation: shine 0.2s linear;
+  border-bottom: 2px solid var(--primary);
+  border-top: 2px solid var(--primary);
+  border-left: 2px solid var(--primary);
 }
 
 @media screen and (max-width: 900px) {
@@ -137,15 +151,19 @@ const softwareProjectData = projectData.filter((project) => project.category == 
     border-right: solid 2px var(--bg);
     border-left: solid 6px var(--primary);
     border-radius: 0 20px 20px 0;
-    background-image: linear-gradient(225deg, var(--bg2), var(--bg2), var(--bg));
     .details {
       p {
         border-left: 2px solid var(--bg);
+        border-right: none;
       }
       div.links {
         text-align: left;
       }
     }
+  }
+  .project-card:nth-child(even):hover {
+    border-right: 2px solid var(--primary);
+    border-left: 6px solid var(--primary);
   }
 }
 @media screen and (max-width: 500px) {

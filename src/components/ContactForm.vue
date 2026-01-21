@@ -294,7 +294,7 @@ function validateMessage(value) {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  margin: var(--md-gap) 0 0;
+  margin-bottom: var(--md-gap);
 }
 
 #input-group div label input,
@@ -314,6 +314,14 @@ function validateMessage(value) {
   cursor: progress;
 }
 
+/* input has error */
+#input-group div label:has(span) {
+  margin-bottom: 0;
+  input,
+  textarea {
+    box-shadow: inset -15px 0 0 red;
+  }
+}
 #input-group div label span {
   text-align: left;
   font-size: 16px;
@@ -367,6 +375,10 @@ function validateMessage(value) {
     svg {
       animation: plane-safe 1s 1 linear;
     }
+  }
+  .contact-btn:active {
+    scale: 1;
+    transition: none;
   }
 
   button {
@@ -447,13 +459,13 @@ function validateMessage(value) {
 
 @keyframes plane-crash {
   35% {
-    color: red;
     translate: 45px -30px;
     rotate: 15deg;
     scale: 0.95;
     filter: drop-shadow(10px 10px 10px black);
   }
   50% {
+    color: red;
     translate: 60px -30px;
   }
   65% {

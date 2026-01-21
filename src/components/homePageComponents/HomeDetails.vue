@@ -76,7 +76,7 @@ import SocialLinks from '../SocialLinks.vue'
   gap: var(--md-gap);
 
   .contact-btn {
-    height: auto;
+    height: 48px;
     width: fit-content;
     padding: var(--sm-gap) var(--md-gap);
     color: var(--body-bg);
@@ -84,9 +84,6 @@ import SocialLinks from '../SocialLinks.vue'
     border-radius: 25px;
     transition: ease-out 350ms;
     background-image: var(--button-gradient);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-decoration: none;
     font-weight: bold;
   }
@@ -94,6 +91,10 @@ import SocialLinks from '../SocialLinks.vue'
     scale: 1.1;
     box-shadow: var(--dark-shadow);
     transition: var(--transition);
+  }
+  .contact-btn:active {
+    scale: 1;
+    transition: none;
   }
 }
 #change-text-animation {

@@ -8,17 +8,17 @@
       </p>
     </div>
     <div class="service-card">
-      <h3>SEO</h3>
-      <p>
-        Search Engine Optimization (SEO) refers to the many practices and techniques that rank your
-        website higher in the list of search results when you look something up on Google or Bing.
-      </p>
-    </div>
-    <div class="service-card">
       <h3>Consultation</h3>
       <p>
         Consultation services for when you need advice on site maintenance, guidance with a new
         feature, or if you would just like a third-party audit of your codebase.
+      </p>
+    </div>
+    <div class="service-card">
+      <h3>SEO</h3>
+      <p>
+        Search Engine Optimization (SEO) refers to the many practices and techniques that rank your
+        website higher in the list of search results when you look something up on Google or Bing.
       </p>
     </div>
     <div class="service-card">
@@ -47,11 +47,11 @@
   display: flex;
   flex-direction: column;
   gap: var(--sm-gap);
+  background-color: var(--body-bg);
+
   transition:
     border var(--transition),
-    scale var(--transition),
-    background-color var(--transition);
-
+    scale var(--transition);
   h3 {
     padding-bottom: var(--sm-gap);
     text-align: center;
@@ -66,7 +66,7 @@
 .service-card:hover {
   border: var(--border);
   scale: 1.05;
-  background-color: var(--body-bg);
+  animation: shine 0.2s linear;
 
   h3 {
     color: var(--primary);

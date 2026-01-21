@@ -1,5 +1,5 @@
 <script setup>
-import { BiAbacus, BiMailSend } from 'vue-icons-plus/bi'
+import { BiFile } from 'vue-icons-plus/bi'
 </script>
 
 <template>
@@ -8,16 +8,13 @@ import { BiAbacus, BiMailSend } from 'vue-icons-plus/bi'
       <h2>Contact Me!</h2>
       <p>
         If you have any questions, please refer to the <router-link to="/faq">faq</router-link>. If
-        you don't see an answer for your question or just want to contact me, feel free to fill out
-        the form or simply email me.
+        you don't see an answer for your question or you have any other inquiries, feel free to fill
+        out the form.
       </p>
       <div>
         <router-link to="/contact" class="contact-btn"
-          >Fill out the form! <BiAbacus size="24"
+          >Fill out the form! <BiFile size="24"
         /></router-link>
-        <a class="contact-btn" href="mailto:tristancarter2772@gmail.com"
-          >Simply Email! <BiMailSend size="24"
-        /></a>
       </div>
     </div>
   </section>
@@ -29,11 +26,11 @@ section#home-contact {
   min-height: 25%;
   background-image: linear-gradient(
     135deg,
+    var(--accent),
+    var(--accent),
+    var(--accent),
     var(--secondary),
-    var(--primary),
-    var(--secondary),
-    var(--secondary),
-    var(--secondary)
+    var(--accent)
   );
   border: var(--border);
   color: var(--body-bg);
@@ -64,22 +61,26 @@ section#home-contact {
         height: auto;
         width: fit-content;
         padding: var(--sm-gap) var(--md-gap);
-        color: var(--primary);
+        color: var(--body-bg);
         border: 2px solid var(--accent);
         border-radius: 25px;
         transition: ease-out 350ms;
-        background-image: var(--dark-button-gradient);
+        background-image: var(--button-gradient);
         display: flex;
+        gap: var(--sm-gap);
         justify-content: center;
         align-items: center;
-        gap: var(--md-gap);
         text-decoration: none;
-        font-weight: 300;
+        font-weight: bold;
       }
       .contact-btn:hover {
         scale: 1.1;
         box-shadow: var(--dark-shadow);
         transition: var(--transition);
+      }
+      .contact-btn:active {
+        scale: 1;
+        transition: none;
       }
     }
   }

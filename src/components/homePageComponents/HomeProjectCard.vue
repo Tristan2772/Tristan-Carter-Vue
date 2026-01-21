@@ -70,6 +70,7 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
 
 .project-card.active {
   background-color: var(--body-bg);
+  animation: shine 0.2s linear 0.6s;
 }
 
 @media screen and (max-width: 850px) {
