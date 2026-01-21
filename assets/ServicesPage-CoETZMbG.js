@@ -1,1 +1,0 @@
-import{d as t,c as r,o as s,a as o,b as n,S as _,_ as p,e as i}from"./index-ClDjwHBh.js";const l=t({__name:"ServicesPage",setup(a){return(c,e)=>(s(),r("section",null,[e[0]||(e[0]=o("h2",null,"My Services",-1)),n(_)]))}}),u=p(l,[["__scopeId","data-v-ac78b8f5"]]),d={__name:"ServicesPage",setup(a){return(c,e)=>(s(),i(u))}};export{d as default};
