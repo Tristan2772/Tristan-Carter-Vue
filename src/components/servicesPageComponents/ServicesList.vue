@@ -48,6 +48,7 @@
   flex-direction: column;
   gap: var(--sm-gap);
   background-color: var(--body-bg);
+  pointer-events: all;
 
   transition:
     border var(--transition),
