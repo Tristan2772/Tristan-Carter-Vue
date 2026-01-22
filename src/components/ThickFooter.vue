@@ -84,8 +84,8 @@ footer {
     width: var(--content-width);
     display: flex;
     flex-wrap: wrap;
-    gap: var(--sm-gap);
-    justify-content: space-around;
+    gap: var(--md-gap) var(--sm-gap);
+    justify-content: flex-start;
     flex-direction: row;
     align-items: center;
     margin: 0 auto;
