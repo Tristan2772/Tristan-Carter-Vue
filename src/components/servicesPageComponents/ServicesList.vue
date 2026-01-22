@@ -1,33 +1,19 @@
+<script setup>
+import { onBeforeUnmount, ref } from "vue";
+import jsonData from "../../assets/services.json";
+const servicesList = jsonData.services
+const activeCard = ref(null)
+
+onBeforeUnmount(() => {
+  activeCard.value = null
+})
+</script>
+
 <template>
   <div class="services-container">
-    <div class="service-card">
-      <h3>Full-Stack Development</h3>
-      <p>
-        Full-stack development encompasses both front-end and back-end technologies. From all the
-        elements a user can see and interact with, to database calls and user authentification.
-      </p>
-    </div>
-    <div class="service-card">
-      <h3>Consultation</h3>
-      <p>
-        Consultation services for when you need advice on site maintenance, guidance with a new
-        feature, or if you would just like a third-party audit of your codebase.
-      </p>
-    </div>
-    <div class="service-card">
-      <h3>SEO</h3>
-      <p>
-        Search Engine Optimization (SEO) refers to the many practices and techniques that rank your
-        website higher in the list of search results when you look something up on Google or Bing.
-      </p>
-    </div>
-    <div class="service-card">
-      <h3>Web Performance Optimization</h3>
-      <p>
-        The optimization of web performance, also known as core web vitals, is the process of
-        reducing database calls or page load times by various means, resulting in a better user
-        experience.
-      </p>
+    <div v-for="(service, index) in servicesList" :key="index" class="service-card" @click="activeCard = index" :class="{active: activeCard === index}">
+      <h3>{{ service.title }}</h3>
+      <p>{{ service.description }}</p>
     </div>
   </div>
 </template>
@@ -64,7 +50,8 @@
   }
 }
 
-.service-card:hover {
+.service-card:hover,
+.service-card.active {
   border: var(--border);
   scale: 1.05;
   animation: shine 0.2s linear;

@@ -1,9 +1,15 @@
 <script setup>
 import { BiFile } from 'vue-icons-plus/bi'
+import { ref, onBeforeUnmount } from "vue";
+const active = ref(false)
+
+onBeforeUnmount(() => {
+  active.value = false
+})
 </script>
 
 <template>
-  <section id="home-contact">
+  <section id="home-contact" @click="active = !active" :class="{active: active===true}">
     <div>
       <h2>Contact Me!</h2>
       <p>
@@ -40,10 +46,6 @@ section#home-contact {
   );
   transition: scale 0.25s;
 
-  &:hover {
-    scale: 1.05;
-    animation: primary-shine 0.25s 1 linear forwards;
-  }
   div {
     margin: auto 0;
     h2 {
@@ -94,6 +96,12 @@ section#home-contact {
     }
   }
 }
+
+section#home-contact:hover, section#home-contact.active {
+    scale: 1.05;
+    animation: primary-shine 0.25s 1 linear forwards;
+  }
+
 @keyframes primary-shine {
   from {
     background-image: linear-gradient(

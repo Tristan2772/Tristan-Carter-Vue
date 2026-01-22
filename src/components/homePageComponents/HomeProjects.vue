@@ -149,7 +149,7 @@ const nextSlide = () => {
     }
     .carousel-track {
       overflow-x: hidden;
-      padding: 0 20%;
+      padding: 0 200px;
 
       /* ------------image mask----------- */
       -webkit-mask-image: linear-gradient(

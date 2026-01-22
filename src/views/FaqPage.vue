@@ -8,7 +8,7 @@ const questions = jsonData.questions
   <section>
     <h2>FAQ</h2>
     <div>
-      <details name="question" v-for="question in questions" :key="question.index">
+      <details name="question" v-for="(question, index) in questions" :key="index">
         <summary>
           <BiPlus size="24" />
           {{ question.q }}

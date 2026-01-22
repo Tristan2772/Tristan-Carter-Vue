@@ -1,0 +1,20 @@
+{
+  "services": [
+    {
+      "title": "Full-Stack Development",
+      "description": "Full-stack development encompasses both front-end and back-end technologies. From all the elements a user can see and interact with, to database calls and user authentification."
+    },
+    {
+      "title": "Consultation",
+      "description": "Consultation services for when you need advice on site maintenance, guidance with a new feature, or if you would just like a third-party audit of your codebase."
+    },
+    {
+      "title": "SEO",
+      "description": "Search Engine Optimization (SEO) refers to the many practices and techniques that rank your website higher in the list of search results when you look something up on Google or Bing."
+    },
+    {
+      "title": "Web Performance Optimization",
+      "description": "The optimization of web performance, also known as core web vitals, is the process of reducing database calls or page load times by various means, resulting in a better user experience."
+    }
+  ]
+}

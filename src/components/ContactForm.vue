@@ -234,18 +234,21 @@ function validateMessage(value) {
       </div>
     </Form>
   </section>
-  <teleport to="body"
-    ><div
+  <teleport to="body">
+    <Transition name="fade">
+      <div
       v-if="toast || loading"
       id="formToast"
       :class="{ error: status === 'error', loading: loading }"
-    >
+      >
       <button v-if="!loading" @click="toast = ''">X</button>
       <p v-if="!loading">{{ toast }}</p>
       <p v-if="loading">
         <CgSpinner />
-      </p></div
-  ></teleport>
+      </p>
+    </div>
+  </Transition>
+</teleport>
 </template>
 
 <style scoped>
@@ -433,6 +436,20 @@ function validateMessage(value) {
     animation: loading 1s linear infinite;
   }
 }
+.fade-enter-active, .fade-leave-active  {
+  transition: all 0.3s ease-out;
+}
+.fade-enter-from,
+.fade-leave-to {
+  transform: translateY(30px);
+  opacity: 0;
+}
+.fade-enter-to,
+.fade-leave-from {
+  transition: none;
+  opacity: 1;
+}
+
 
 @keyframes loading {
   0% {
@@ -452,15 +469,15 @@ function validateMessage(value) {
   }
   50% {
     color: red;
-    translate: 60px -30px;
+    translate: 55px -30px;
   }
   65% {
-    translate: 80px -20px;
+    translate: 70px -20px;
     scale: 0.75;
   }
   80%,
   to {
-    translate: 120px 8px;
+    translate: 100px 8px;
     rotate: 115deg;
     scale: 0.45;
     color: red;
@@ -470,10 +487,10 @@ function validateMessage(value) {
   25% {
     color: var(--primary);
   }
-  80% {
+  70% {
     translate: 80px -60px;
     rotate: 30deg;
-    scale: 0.25;
+    scale: 0.35;
   }
   100% {
     translate: 100px -65px;

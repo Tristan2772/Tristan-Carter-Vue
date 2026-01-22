@@ -1,15 +1,22 @@
 <script setup>
+  import { ref, onBeforeUnmount } from "vue";
 import { BiFolderOpen, BiLinkExternal } from 'vue-icons-plus/bi'
 import jsonData from '../../assets/projects.json'
 const projectData = jsonData.projects
 const softwareProjectData = projectData.filter((project) => project.category == 'software')
+const activeCard = ref(null)
+
+onBeforeUnmount(() => {
+  activeCard.value = null
+})
+
 </script>
 
 <template>
   <section id="software-Proj">
     <h2>My Projects</h2>
     <div class="projects-container">
-      <div class="project-card" v-for="projects in softwareProjectData" :key="projects.id">
+      <div class="project-card" v-for="(projects, index) in softwareProjectData" :key="index" @click="activeCard = index" :class="{active: activeCard === index}" >
         <img :src="projects.image" :alt="projects.smallDesc" />
         <div class="details">
           <h3>{{ projects.title }}</h3>
@@ -114,13 +121,13 @@ const softwareProjectData = projectData.filter((project) => project.category == 
   }
 }
 
-.project-card:nth-child(odd):hover {
+.project-card:nth-child(odd):hover, .project-card:nth-child(odd).active {
   animation: shine 0.2s linear;
   border-bottom: 2px solid var(--primary);
   border-top: 2px solid var(--primary);
   border-right: 2px solid var(--primary);
 }
-.project-card:nth-child(even):hover {
+.project-card:nth-child(even):hover, .project-card:nth-child(even).active {
   animation: shine 0.2s linear;
   border-bottom: 2px solid var(--primary);
   border-top: 2px solid var(--primary);
@@ -161,7 +168,7 @@ const softwareProjectData = projectData.filter((project) => project.category == 
       }
     }
   }
-  .project-card:nth-child(even):hover {
+  .project-card:nth-child(even):hover, .project-card:nth-child(even).active {
     border-right: 2px solid var(--primary);
     border-left: 6px solid var(--primary);
   }
