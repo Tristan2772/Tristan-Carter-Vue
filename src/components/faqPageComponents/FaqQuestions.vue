@@ -59,7 +59,7 @@ section {
           translate: 0 2px;
         }
       }
-      summary::webkit-details-marker {
+      summary::-webkit-details-marker {
         display: none;
       }
 
