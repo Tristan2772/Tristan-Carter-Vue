@@ -93,6 +93,7 @@ footer {
     li {
       min-width: 20%;
       list-style-type: none;
+      text-align: center;
       a {
         color: var(--text-color);
         transition: var(--transition);

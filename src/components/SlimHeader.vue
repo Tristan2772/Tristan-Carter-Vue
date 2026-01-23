@@ -44,7 +44,7 @@ watchEffect(() => {
   <header>
     <div class="container">
       <!-- logo -->
-      <router-link to="/"><img src="/public/tc-logo.PNG" alt="Tristan Carter Logo" /></router-link>
+      <router-link to="/"><img src="/public/tc-logo.webp" alt="Tristan Carter Logo" /></router-link>
 
       <!-- links -->
       <nav>
@@ -143,9 +143,13 @@ header {
 @media screen and (max-width: 700px) {
   header {
     .container {
+      a img {
+        padding-left: var(--md-gap);
+      }
       nav {
         justify-content: flex-start;
         flex-wrap: wrap;
+
       }
     }
   }

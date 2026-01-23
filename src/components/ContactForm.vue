@@ -462,22 +462,22 @@ function validateMessage(value) {
 
 @keyframes plane-crash {
   35% {
-    translate: 45px -30px;
+    translate: 25px -30px;
     rotate: 15deg;
     scale: 0.95;
     filter: drop-shadow(10px 10px 10px black);
   }
   50% {
     color: red;
-    translate: 55px -30px;
+    translate: 40px -30px;
   }
   65% {
-    translate: 70px -20px;
+    translate: 60px -20px;
     scale: 0.75;
   }
   80%,
   to {
-    translate: 100px 8px;
+    translate: 80px 8px;
     rotate: 115deg;
     scale: 0.45;
     color: red;
@@ -488,12 +488,12 @@ function validateMessage(value) {
     color: var(--primary);
   }
   70% {
-    translate: 80px -60px;
+    translate: 60px -60px;
     rotate: 30deg;
     scale: 0.35;
   }
   100% {
-    translate: 100px -65px;
+    translate: 80px -65px;
     rotate: 30deg;
     scale: 0.05;
   }

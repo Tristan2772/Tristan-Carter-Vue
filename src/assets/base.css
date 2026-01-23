@@ -49,6 +49,10 @@
   font-family: var(--content-font);
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: var(--body-bg);
   position: relative;

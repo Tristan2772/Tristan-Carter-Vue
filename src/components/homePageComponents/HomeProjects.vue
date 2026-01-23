@@ -149,7 +149,7 @@ const nextSlide = () => {
     }
     .carousel-track {
       overflow-x: hidden;
-      padding: 0 200px;
+      padding: 0 20%;
 
       /* ------------image mask----------- */
       -webkit-mask-image: linear-gradient(
@@ -209,7 +209,6 @@ const nextSlide = () => {
 
 @media screen and (max-width: 1100px){
   #home-projects {
-    padding: var(--lg-gap) var(--sm-gap);
     .carousel-container {
       .carousel-track {
         -webkit-mask-image: linear-gradient(
@@ -240,7 +239,7 @@ const nextSlide = () => {
 }
 @media screen and (max-width: 550px){
   #home-projects {
-    padding: var(--lg-gap) 0;
+    padding: var(--lg-gap) 0 var(--sm-gap);
 
     .carousel-container {
       .carousel-track {
@@ -255,8 +254,24 @@ const nextSlide = () => {
 
     .carousel-container {
       button {
-        min-width: 30px;
-        height: 30px;
+        min-width: 40px;
+        height: 40px;
+      }
+    }
+  }
+}
+@media screen and (max-width:400px) {
+  h2 {
+    padding-bottom: var(--md-gap);
+  }
+}
+@media screen and (max-width: 370px) {
+  #home-projects {
+    .carousel-container{
+      button {
+        min-width: 35px;
+        height: 35px;
+
       }
     }
   }

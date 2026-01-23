@@ -96,4 +96,16 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
     }
   }
 }
+
+@media screen and (max-width: 400px) {
+.project-card {
+  scale: .9;
+}
+}
+@media screen and (max-width: 370px) {
+.project-card {
+  scale: .85;
+}
+}
+
 </style>
