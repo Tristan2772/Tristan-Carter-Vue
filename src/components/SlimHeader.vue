@@ -97,8 +97,8 @@ header {
     gap: var(--md-gap);
 
     a img {
-      width: 75px;
-      aspect-ratio: 3/2;
+      width: 50px;
+      aspect-ratio: 1/1;
       transition: var(--transition);
     }
     a img:hover {
@@ -114,8 +114,7 @@ header {
       margin: 0 auto;
 
       .nav-link {
-        padding: 5px 10px 0;
-        margin-bottom: 10px;
+        margin: 0 var(--sm-gap) var(--sm-gap);
         font-size: var(--fs-sm);
         list-style: none;
         color: var(--txt-color);
@@ -144,7 +143,7 @@ header {
   header {
     .container {
       a img {
-        padding-left: var(--md-gap);
+        margin-left: var(--md-gap);
       }
       nav {
         justify-content: flex-start;

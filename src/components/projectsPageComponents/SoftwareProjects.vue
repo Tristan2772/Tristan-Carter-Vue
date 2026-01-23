@@ -71,7 +71,7 @@ onBeforeUnmount(() => {
     flex-direction: column;
     justify-content: space-around;
     p {
-      margin-top: var(--sm-gap);
+      margin: var(--sm-gap) 0;
       padding: 0 var(--sm-gap);
       line-height: var(--lh2);
       border-left: 2px solid var(--bg);
