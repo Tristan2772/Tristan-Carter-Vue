@@ -67,7 +67,6 @@ main {
 }
 section {
   width: var(--content-width);
-  min-height: 85dvh;
   margin: var(--lg-gap) auto;
   padding: var(--lg-gap);
   backdrop-filter: blur(10px);
@@ -95,16 +94,16 @@ hr.divider {
   border: none;
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 540px) {
   :root {
     --content-width: 100%;
   }
   section {
     border-radius: 0;
-    padding: var(--md-gap) var(--sm-gap);
+    padding: var(--md-gap);
   }
   hr.divider {
-    height: 10dvh;
+    height: 10svh;
   }
 }
 @keyframes shine {

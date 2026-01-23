@@ -7,7 +7,7 @@ import SocialLinks from '../SocialLinks.vue'
     <img src="/tristan-carter.webp" alt="Tristan Carter Portrait Photo" />
     <div id="home-details">
       <h1>Hi, I'm Tristan<span> Carter.</span></h1>
-      <h2>I am a <span id="change-text-animation">Full-Stack</span> Developer.</h2>
+      <h2>I am a <span id="change-text-animation">Full-Stack</span> developer.</h2>
       <div class="info">
         <p>
           I build custom solutions for small-medium businesses that help them grow their online
@@ -66,6 +66,7 @@ import SocialLinks from '../SocialLinks.vue'
       p {
         padding-left: var(--sm-gap);
         line-height: var(--lh2);
+        font-size: var(--fs-xs);
       }
     }
   }
@@ -145,6 +146,19 @@ import SocialLinks from '../SocialLinks.vue'
 @media screen and (max-width: 900px) {
   #home {
     flex-direction: column;
+  }
+}
+@media screen and (max-width: 650px) {
+  #home {
+    #home-details {
+      h1 {
+        font-size: var(--fs-lg);
+      }
+      h2 {
+        font-size: 24px;
+        font-weight: 100;
+      }
+    }
   }
 }
 </style>

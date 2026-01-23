@@ -124,11 +124,11 @@
 @keyframes glitchy-words {
   0%,
   25% {
-    content: 'Full-Stack';
+    content: 'full-stack';
   }
   25.1%,
   50% {
-    content: '   Web    ';
+    content: '   web    ';
   }
   50.1%,
   75% {
@@ -136,6 +136,6 @@
   }
   75.1%,
   100% {
-    content: ' Software ';
+    content: ' software ';
   }
 }

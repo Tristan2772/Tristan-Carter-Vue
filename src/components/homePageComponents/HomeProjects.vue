@@ -241,7 +241,7 @@ const nextSlide = () => {
 }
 @media screen and (max-width: 650px){
   #home-projects {
-    padding: var(--lg-gap) var(--sm-gap) var(--sm-gap);
+    padding: var(--lg-gap) var(--sm-gap) var(--md-gap);
 
     .carousel-container {
       .carousel-track {
