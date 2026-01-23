@@ -149,7 +149,7 @@ const nextSlide = () => {
     }
     .carousel-track {
       overflow-x: hidden;
-      padding: 0 20%;
+      /* padding: 0 20%; */
 
       /* ------------image mask----------- */
       -webkit-mask-image: linear-gradient(
@@ -184,6 +184,8 @@ const nextSlide = () => {
         align-items: center;
         gap: var(--xl-gap);
         scroll-snap-type: x mandatory;
+        padding: 0 20%;
+
       }
     }
     .carousel-track::-webkit-scrollbar {
@@ -237,9 +239,9 @@ const nextSlide = () => {
     }
   }
 }
-@media screen and (max-width: 550px){
+@media screen and (max-width: 650px){
   #home-projects {
-    padding: var(--lg-gap) 0 var(--sm-gap);
+    padding: var(--lg-gap) var(--sm-gap) var(--sm-gap);
 
     .carousel-container {
       .carousel-track {
@@ -249,7 +251,7 @@ const nextSlide = () => {
     }
   }
 }
-@media screen and (max-width:425px) {
+@media screen and (max-width:550px) {
   #home-projects {
 
     .carousel-container {
@@ -260,9 +262,16 @@ const nextSlide = () => {
     }
   }
 }
-@media screen and (max-width:400px) {
-  h2 {
-    padding-bottom: var(--md-gap);
+@media screen and (max-width:440px) {
+  #home-projects {
+
+
+    h2 {
+      padding-bottom: 0;
+    }
+    a.int-link {
+      margin: 0 var(--md-gap) 0 auto;
+    }
   }
 }
 @media screen and (max-width: 370px) {

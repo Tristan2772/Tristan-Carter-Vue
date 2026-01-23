@@ -35,6 +35,7 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
     aspect-ratio: 2/1;
     width: 70%;
     margin: var(--md-gap) auto;
+    border: 2px solid var(--bg);
     border-radius: 15px;
   }
   p {
@@ -73,12 +74,12 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
   animation: shine 0.2s linear 0.6s;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 900px) {
   .project-card {
     max-width: 400px;
   }
 }
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 700px) {
   .project-card {
     max-width: 350px;
   }
@@ -97,14 +98,19 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 440px) {
 .project-card {
   scale: .9;
 }
 }
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 400px) {
 .project-card {
   scale: .85;
+}
+}
+@media screen and (max-width: 360px) {
+.project-card {
+  scale: .8;
 }
 }
 
