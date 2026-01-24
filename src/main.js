@@ -12,3 +12,10 @@ app.use(createPinia())
 app.use(router)
 
 app.mount('#app')
+
+// Register Service Worker for image caching
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/Tristan-Carter-Vue/sw.js').catch(() => {
+    // Service Worker registration failed, app still works
+  })
+}
