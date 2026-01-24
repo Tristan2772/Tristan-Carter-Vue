@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "AJ's Lawn and Home",
-      "image": "/Tristan-Carter-Vue/AJs-Lawn.webp",
+      "image": "/Tristan-Carter/src/assets/AJs-Lawn.webp",
       "small-desc": "clean and modern lawn care business website",
       "about": "A website designed and built with brand-consistent and search engine optimization best practices to establish and grow the client's online presence.",
       "link1": "https://tristan2772.github.io/AJs-Lawn/",
@@ -14,7 +14,7 @@
     {
       "id": 2,
       "title": "Nuxt Travel App",
-      "image": "/Tristan-Carter-Vue/Nuxt-Travel-App.webp",
+      "image": "/Tristan-Carter/src/assets/Nuxt-Travel-App.webp",
       "small-desc": "map app with locations",
       "about": "A full-stack app, written with Nuxt 4, DaisyUI, and Turso. This is a reimplementation of an existing app for personal development purposes. ",
       "link1": "www.yelp.com",
@@ -25,7 +25,7 @@
     {
       "id": 3,
       "title": "David Chu's China Bistro",
-      "image": "/Tristan-Carter-Vue/David-Chus.webp",
+      "image": "/Tristan-Carter/src/assets/David-Chus.webp",
       "small-desc": "restauraunt website layout",
       "about": "A pixel-perfect implementation of the original website, refactored from Bootstrap 3 to Bootstrap 5. This website was built as a capstone for a web development certification course.",
       "link1": "https://tristan2772.github.io/DavidChusChinaBistro/",

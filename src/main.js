@@ -25,7 +25,7 @@ if (redirectPath) {
 
 // Register Service Worker for image caching
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/Tristan-Carter-Vue/sw.js').catch(() => {
+  navigator.serviceWorker.register('/Tristan-Carter/sw.js').catch(() => {
     // Service Worker registration failed, app still works
   })
 }
