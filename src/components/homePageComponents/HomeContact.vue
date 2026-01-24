@@ -73,7 +73,7 @@ section#home-contact {
         width: fit-content;
         padding: var(--sm-gap) var(--md-gap);
         color: var(--body-bg);
-        border: 2px solid var(--accent);
+        border: 2px solid var(--secondary);
         border-radius: 25px;
         transition: ease-out 350ms;
         background-image: var(--button-gradient);
