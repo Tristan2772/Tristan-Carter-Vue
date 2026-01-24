@@ -31,7 +31,6 @@ section#home-contact {
   margin-top: 80px;
   min-height: 25%;
   border: var(--border);
-  color: var(--body-bg);
   text-align: center;
   background-image: linear-gradient(
     135deg,
@@ -43,21 +42,22 @@ section#home-contact {
     var(--secondary),
     var(--accent),
     var(--accent)
-  );
-  transition: scale 0.25s;
+    );
+    transition: scale 0.25s;
 
-  div {
-    margin: auto 0;
-    h2 {
-      color: var(--body-bg);
+    div {
+      margin: auto 0;
+      h2 {
+      color: var(--text-color);
       padding-bottom: var(--md-gap);
     }
     p {
+      color: var(--text-color);
       line-height: var(--lh2);
       font-size: var(--fs-sm);
 
       a {
-        color: var(--body-bg);
+        color: var(--text-color);
       }
     }
     div {
