@@ -4,15 +4,9 @@
     <meta charset="utf-8" />
     <title>Redirecting...</title>
     <script type="text/javascript">
-      // Get the path relative to the base
-      const basePath = '/Tristan-Carter'
-      const pathArray = window.location.pathname.split('/')
-      const redirectPath = pathArray.slice(pathArray.indexOf('Tristan-Carter') + 1).join('/')
-
-      // Redirect to index.html with the path as a query parameter
-      window.location.replace(
-        basePath + '/index.html?redirect=' + encodeURIComponent('/' + redirectPath),
-      )
+      // Redirect to index.html with the path as a query parameter for SPA routing
+      const path = window.location.pathname
+      window.location.replace('/?redirect=' + encodeURIComponent(path))
     </script>
   </head>
   <body></body>
