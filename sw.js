@@ -1,5 +1,5 @@
 const CACHE_NAME = 'tristan-carter-v1'
-const ASSETS_TO_CACHE = ['/Tristan-Carter/', '/Tristan-Carter/index.html']
+const ASSETS_TO_CACHE = ['/', '/index.html']
 
 // Cache on install
 self.addEventListener('install', (event) => {
