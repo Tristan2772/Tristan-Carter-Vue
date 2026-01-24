@@ -4,7 +4,7 @@ import SocialLinks from '../SocialLinks.vue'
 
 <template>
   <section id="home">
-    <img src="/src/assets/tristan-carter.webp" alt="Tristan Carter Portrait Photo" />
+    <img src="@/assets/tristan-carter.webp" alt="Tristan Carter Portrait Photo" />
     <div id="home-details">
       <h1>Hi, I'm Tristan<span> Carter.</span></h1>
       <h2>I am a <span id="change-text-animation">Full-Stack</span> developer.</h2>

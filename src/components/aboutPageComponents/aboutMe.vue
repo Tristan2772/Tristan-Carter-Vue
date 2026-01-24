@@ -5,7 +5,7 @@ import SocialLinks from '../SocialLinks.vue'
 <template>
   <section>
     <div class="about-container">
-      <img src="/src/assets/tristan-carter.webp" alt="a dev" />
+      <img src="@/assets/tristan-carter.webp" alt="a dev" />
 
       <div class="details">
         <h2>About Me</h2>

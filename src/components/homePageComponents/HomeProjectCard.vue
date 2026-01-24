@@ -1,11 +1,18 @@
 <script setup>
 import { BiLinkExternal, BiFolderOpen } from 'vue-icons-plus/bi'
+
+const imageMap = {
+  1: new URL('../../assets/AJs-Lawn.webp', import.meta.url).href,
+  2: new URL('../../assets/Nuxt-Travel-App.webp', import.meta.url).href,
+  3: new URL('../../assets/David-Chus.webp', import.meta.url).href
+}
+
 defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
 </script>
 
 <template>
   <div class="project-card">
-    <img loading="lazy" :src="image" :alt="smallDesc" />
+    <img loading="lazy" :src="imageMap[id] || image" :alt="smallDesc" />
     <h3>{{ title }}</h3>
     <p>{{ about }}</p>
     <div class="links">

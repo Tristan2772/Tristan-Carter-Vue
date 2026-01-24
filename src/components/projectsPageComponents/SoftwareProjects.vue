@@ -6,6 +6,12 @@ const projectData = jsonData.projects
 const softwareProjectData = projectData.filter((project) => project.category == 'software')
 const activeCard = ref(null)
 
+const imageMap = {
+  1: new URL('../../assets/AJs-Lawn.webp', import.meta.url).href,
+  2: new URL('../../assets/Nuxt-Travel-App.webp', import.meta.url).href,
+  3: new URL('../../assets/David-Chus.webp', import.meta.url).href
+}
+
 onBeforeUnmount(() => {
   activeCard.value = null
 })
@@ -17,7 +23,7 @@ onBeforeUnmount(() => {
     <h2>My Projects</h2>
     <div class="projects-container">
       <div class="project-card" v-for="(projects, index) in softwareProjectData" :key="index" @click="activeCard = index" :class="{active: activeCard === index}" >
-        <img :src="projects.image" :alt="projects.smallDesc" />
+        <img :src="imageMap[projects.id] || projects.image" :alt="projects.smallDesc" />
         <div class="details">
           <h3>{{ projects.title }}</h3>
           <p>{{ projects.about }}</p>

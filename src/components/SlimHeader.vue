@@ -44,7 +44,7 @@ watchEffect(() => {
   <header>
     <div class="container">
       <!-- logo -->
-      <router-link to="/"><img src="/src/assets/tc-logo.webp" alt="Tristan Carter Logo" /></router-link>
+      <router-link to="/"><img src="@/assets/tc-logo.webp" alt="Tristan Carter Logo" /></router-link>
 
       <!-- links -->
       <nav>

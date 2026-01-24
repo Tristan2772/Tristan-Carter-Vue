@@ -69,11 +69,6 @@ function animateScrollToCard(index, duration = 600) {
   requestAnimationFrame(animate)
 }
 
-// ----------------------------fix clear active function
-// ----------------------------fix clear active function
-// ----------------------------fix clear active function
-
-
 const previousSlide = () => {
   clearActiveCard(currentIndex.value)
   currentIndex.value = currentIndex.value > 0 ? currentIndex.value - 1 : maxIndex.value
